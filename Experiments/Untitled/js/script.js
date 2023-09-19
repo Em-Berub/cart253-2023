@@ -32,9 +32,9 @@ background(255,0,100)
       
       for ( let x =-50; x<550;x +=35){
         //   for  (let y = 50; y<550 ; y + = 50){
-            ellipse (x,x,   50,50)
-            ellipse (x+a,x,50,50)
-            ellipse (x-a,x,50,50)
+            ellipse (x,x,   5,150)
+            ellipse (x+a,x,5,150)
+            ellipse (x-a,x,5,150)
             fill(0,0,0)
 }
 
