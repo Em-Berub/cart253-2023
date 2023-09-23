@@ -46,6 +46,14 @@ if (circle.x>width/2){
 
 }
 
+if (mouseX < width/2){
+    circle.y= map(circle.x,0,width, 100 ,400 )
+ }
+
+ if (circle.x < width/2){
+    circle.y= map(circle.x,0,width, 225 ,400 )
+ }
+
 if (circle.x>width){
     circle.speed = -circle.speed
 }
