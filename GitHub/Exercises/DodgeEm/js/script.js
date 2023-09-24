@@ -4,13 +4,15 @@
 let img;
 function preload() {
   img = loadImage('assets/images/FireEmoji.png');
+
+
 }
 
 let circle = {
     x:25,
     y:250,
-    speed:20,
-    size:35
+    speed:2,
+    size:2
 
 }
 
@@ -19,8 +21,12 @@ function setup() {
 createCanvas(500, windowHeight)
  
 background(120,122,122)
-
-
+fill (255,100,100)
+  textSize(40);
+textAlign(CENTER);
+textStyle(BOLDITALIC);
+text('DODGE THE C', 250, 50);
+textAlign(CENTER);
 strokeWeight(0);
 
 image(img, 0, 200,50,50);
@@ -29,15 +35,22 @@ image(img, 0, 200,50,50);
 
 
 function draw() {
-  background(120,122,122)
+
+
+  // background(120,122,122)
 
   cursor(`cell`)
-fill (255,100,100)
-textSize(40);
-textAlign(CENTER);
-textStyle(BOLDITALIC);
-text('DODGE THE COVID', 250, 50);
-textAlign(CENTER);
+stroke (255)
+// let x;
+// let y;
+// x=200
+// y =200
+// for (let i = 0; i < 1000; i++) {
+//         let x = random(0, width);
+//         let y = random(0, height);
+//         stroke(255);
+//         point(x, y);
+// }
 
     fill(255,200,200)
     push() 
@@ -51,11 +64,23 @@ fill(0)
 ellipse(mouseX,mouseY,circle.size)
 pop()
 
-push()
-strokeWeight(2)
-frameRate(5); 
-drawEllipse();
-pop()
+for(let i=0; i< 100; i++){
+  ellipse(circle.x,circle.y,circle.size)
+  circle.x=random(0,500)
+  circle.y=random(0,height)
+  // noLoop()
+}
+if (mouseX = circle.x + 20){
+  fill(0)
+  rect(100,100,100,100)
+  
+}
+
+// push()
+// strokeWeight(2)
+// frameRate(30); 
+// drawEllipse();
+// pop()
 
 
 // if (circle.x > 500){
@@ -67,7 +92,7 @@ pop()
 
 
 // for (let i = 0 ; i< 10; i++){
-//     ellipse(circle.x,circle.y,circle.size)
+//     
 //     circle.y = circle.y +20
 //     circle.x = circle.x +50
 //     if (circle.x > 500){
