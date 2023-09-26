@@ -7,7 +7,10 @@ function preload() {
 
 
 }
-
+let mou ={
+  x:0,
+  y:0
+}
 let circle = {
     x:0,
     y:200,
@@ -41,11 +44,13 @@ createCanvas(500, windowHeight- 100)
 
 function draw() {
   background(140,132,132)
+  mou.x=mouseX
+  mou.y=mouseY
   push()
 strokeWeight(2)
 stroke(0)
 fill(43, 153, 142)
-ellipse(mouseX,mouseY,20,20)
+ellipse(mou.x,mou.y,20,20)
 cursor(`cell`)
 pop()
 fill (255,100,100)
@@ -136,8 +141,8 @@ if (mouseX > width || mouseX < 0 || mouseY > height ||mouseY < 0){
 }
 
 
-let d = dist(mouseX, mouseY, circle.x, circle.y);
-if (d < 20) {
+let d = dist(mou.x, mou.y, circle.x, circle.y);
+if (d < 50) {
   print(d)
 // stroke(0)
 // strokeWeight(2)
@@ -148,7 +153,7 @@ noLoop()
 
 
 let dis = dist(mouseX, mouseY, sha.x, sha.y);
-if (dis < 20) {
+if (dis < 50) {
   print(dis)
 // stroke(0)
 // strokeWeight(2)
