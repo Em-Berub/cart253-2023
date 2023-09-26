@@ -14,42 +14,89 @@ let mou ={
 let circle = {
     x:0,
     y:200,
-    vx:30,
-    size:50
+    vx:35,
+    size:60
 
 }
 
 let sha = {
   x:0,
   y:200,
-  vx:20,
-  size:50
+  vx:30,
+  size:60
 
 }
 
 function setup() {
 createCanvas(500, windowHeight- 100)
-
-
-
-
-
- 
-
-
+// for (let circleY = 30; circleY <= 500; circleY += 40) {//Does 144 symmetrical circles
+//   for (let circleX = 30; circleX <= 500; circleX += 40) {
+//           ellipse(circleX, circleY, 40);
+//   }
+// }
 
 }
+// circleconcentric
+// let size1;
+// let size2;
+// let x = 0
+// let num = 0;
+// while (num < 100) {
+//   num = num +1;
+//   x=x+30
+//   size1=100 + x
+  
+//     // size2=random(0,100)
+// fill(100,100,100,1)
+//   ellipse(width/2, height/2,size1)
+
+// }
 
 
 
 function draw() {
-  background(140,132,132)
+
+background(140,132,132)
+// circleconcentric************
+
+  let size1;
+    let size2;
+  let x = 0
+  stroke(0)
+  for (let i =0 ; i<50; i++) {
+   
+    x=x+30
+    size1=x+100
+    
+      // size2=random(0,100)
+  fill(0,0,0,0,8)
+  strokeWeight(10)
+  
+    ellipse(width/2, height/2,size1)
+
+  }
+
+//*************** */
+
+
+
+
+// for (let i = 0; i < 5000; i++) {
+//   let x = random(0, width);
+//   let y = random(0, height);
+//   stroke(255);
+//   strokeWeight(1)
+//   point(x,y)
+// }
+
+
+
   mou.x=mouseX
   mou.y=mouseY
   push()
 strokeWeight(2)
 stroke(0)
-fill(43, 153, 142)
+fill(21, 214, 232)
 ellipse(mou.x,mou.y,20,20)
 cursor(`cell`)
 pop()
@@ -62,21 +109,14 @@ textAlign(CENTER);
 textStyle(BOLDITALIC);
 text('DODGE THE PARTICULES', 250, 50);
 textAlign(CENTER);
-stroke (0)
+stroke (255)
 line (35,60,470, 60)
 
 
-
+stroke (4, 164, 179)
 push ();
 
-  for (let i = 0; i < 5000; i++) {
-          let x = random(0, width);
-          let y = random(0, height);
-          stroke(255);
-          strokeWeight(1)
-          point(x,y)
-        }
-
+ 
 pop ();
   
 // image(img, 0, 0,50,50);
@@ -124,7 +164,6 @@ circle.y = circle.y + circle.vx
   }
 
 
-
 ellipse(circle.x,circle.y,circle.size)
 // frameRate(10)
 
@@ -132,6 +171,13 @@ ellipse(circle.x,circle.y,circle.size)
 
 // ********************
 
+for (let i = 0; i < 5000; i++) {
+  let x = random(0, width);
+  let y = random(0, height);
+  stroke(255);
+  strokeWeight(1)
+  point(x,y)
+}
 
 
 
