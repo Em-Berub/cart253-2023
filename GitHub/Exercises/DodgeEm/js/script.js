@@ -1,7 +1,7 @@
 // Em
 // Title:Dodge the Particules
 // 
-// The program reload everytime the key or mouse are pressed
+// The program reloads everytime the key or mouse are pressed
 // 
 
 "use strict";
