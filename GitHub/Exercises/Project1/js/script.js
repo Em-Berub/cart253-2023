@@ -7,10 +7,9 @@
 //  If the ball goes inside the lower rectangle that means you've lost.
 // It's similar to air hockey but the ball does not decelerate.
 // The gameplay has multiple issues. Sometimes the program works correctly and
-// sometimes it doesn't. As the ball increases in speed or just as the program is 
-// running it doesn't responds correctly. For instance, the white
+// sometimes it doesn't. For instance, the white
 //  ball is suppose to bounce back everytime it touches the borders of the 
-// ellipse surrounding the mouse, but it doesn't necesseriy happens!
+// ellipse surrounding the mouse, but it doesn't necesserily happens!
 // 
 // ******************************************************
 
