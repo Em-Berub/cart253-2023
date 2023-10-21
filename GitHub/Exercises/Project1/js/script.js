@@ -10,7 +10,7 @@
 // sometimes it doesn't. As the ball increases in speed or just as the program is 
 // running it doesn't responds correctly. For instance, the white
 //  ball is suppose to bounce back everytime it touches the borders of the 
-// red rectangle, but it doesn't necesseriy happens!
+// ellipse surrounding the mouse, but it doesn't necesseriy happens!
 // 
 // ******************************************************
 
@@ -108,7 +108,7 @@ function draw() {
     textSize(20);
     text('If the ball falls into the purple rectangle you lose', 250, 300); 
    
-    // rectangle filled in purple, bottom of screen
+    // rectangle filled in purple, bottom of screen; rectangle filled in red upper screen
     rect(100,400,300,100)
     fill(255,0,0)
     rect(goal.x,goal.y,goal.sizex,goal.sizey)
@@ -128,12 +128,12 @@ if (ball.x>width||ball.x<0){
   ball.vx=-ball.vx
 }
 
-// when the ball touches the mouse, the speed goes up
+// // when the ball touches the mouse the ball changes direction
 let e = dist(mouseX, mouseY, ball.x, ball.y);
 
 if (e < 40) {
-  ball.vx=-ball.vx-0.5
-ball.vy=-ball.vy-0.5
+  // ball.vx=-ball.vx
+ball.vy=-ball.vy
   }
   
   // When the ball touches the edges of the lower rectangle it bounces back and increases in size
@@ -152,7 +152,7 @@ ball.vy=-ball.vy-0.5
       
   // This means the ball has entered into the upper rectangle, the state changes
   // and the programs ends
-      if (ball.y===0&&ball.x>0&&ball.x<275&&state=="game"){
+      if (ball.y===0&&ball.x>goal.x&&ball.x<275&&state=="game"){
         state="end"
       }
 
