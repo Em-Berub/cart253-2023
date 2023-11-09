@@ -8,13 +8,12 @@
 // It's similar to air hockey but the ball does not decelerate.
 // The gameplay has multiple issues. Sometimes the program works correctly and
 // sometimes it doesn't. For instance, the white
-//  ball is suppose to bounce back everytime it touches the borders of the 
+// ball is suppose to bounce back everytime it touches the borders of the 
 // ellipse surrounding the mouse, but it doesn't necesserily happens!
 // 
 // ******************************************************
 
 "use strict";
-
 
 function preload() {
 }

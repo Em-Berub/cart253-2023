@@ -1,0 +1,8 @@
+Project 2 Proposal
+
+For my final project I wish to create a code that will put the emphasis on 
+aesthetics rather than interactivity.
+I would like to create a program that corresponds to my sense of beauty. 
+I understand that functionality is at the core of JavaScript and I will try to implemente
+some forms of interactivity but it won't be about aiming to a specific goal or resolving a specific issue.
+
