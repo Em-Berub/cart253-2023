@@ -80,9 +80,6 @@ class Rebound {
             this.vy = -this.vy
             this.ay = 0
         }
-
-
-       
     }
      
     display() {
