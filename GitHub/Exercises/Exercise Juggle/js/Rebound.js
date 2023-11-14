@@ -1,4 +1,6 @@
-class Ball {
+class Rebound {
+
+
 
     constructor(x, y) {
         this.x = x
@@ -8,21 +10,41 @@ class Ball {
         this.ax = 0
         this.ay = 0
         this.maxSpeed = 10
-        this.size = 40
+        this.size = 30
         this.active = true
-        this.maxSize = 200
-        this.fill= 255
-        this.fill2= 150
-        this.fill3= 50
-        
-
+        this.growRate = 5
+        this.maxSize = 100
     }
 
     gravity(force) {
         this.ay = this.ay + force
     }
 
-
+    grown (ball){
+        
+        
+            // Calculate the distance between the bee and the flower
+            let d = dist(this.x, this.y, ball.x, ball.y);
+            // If they overlap...
+            if (d < this.size / 2 + ball.size / 2) {
+              // The bee should grow
+              // Notice how we can call OTHER METHODS of the Bee by using "this"
+              // So this.grow() calls the grow() method for THIS bee
+              this.vy = -this.vy
+              this.ay = 0
+              this.grow();
+              // The flower should react to being pollinated so we call its method
+              // that handles that!
+              ball.touch();
+            }
+          }
+    
+          grow() {
+            // Grow by increasing the size by a set amount
+            this.size = this.size + this.growRate;
+            // Constrain the growth to a maximum
+            this.size = constrain(this.size, 0, this.maxSize);
+          }
     //Now the balls come back with the opposite velocity when they hit a side of the canvas
     move() {
         this.vx = this.vx + this.ax
@@ -50,7 +72,7 @@ class Ball {
         if (this.x > paddle.x - paddle.width / 2 &&
             this.x < paddle.x + paddle.width / 2 &&
             this.y + this.size / 2 > paddle.y - paddle.height / 2 &&
-            this.y - this.size/2 < paddle.y + paddle.height / 2) {
+            this.y - this.size < paddle.y + paddle.height / 2) {
 
             let dx = this.x - paddle.x
             this.vx = this.vx + map(dx, -paddle.width/2, paddle.width/2, -10,10)
@@ -59,24 +81,18 @@ class Ball {
             this.ay = 0
         }
 
-    }
 
-    touch() {
-        // Choose a random amount to grow
-        let growth = 0.5
-        // Increase the petal thickness (divide by 10 to make it less rapid)
-        this.size = this.size + growth 
-        // Increase the centre of the flower
-        this.vx = -this.vx
-        // Constrain the elements
-        this.size = constrain(this.size, 0, this.maxSize);
-      }
+       
+    }
+     
     display() {
         push()
-        fill(this.fill,this.fill2,this.fill3)
+        fill(0, 100, 100)
         stroke(10)
         ellipse(this.x, this.y, this.size)
         pop()
     }
 
 }
+
+
