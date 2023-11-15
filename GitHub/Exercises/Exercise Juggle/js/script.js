@@ -8,7 +8,7 @@ let paddle
 let gravityForce = 0.0010
 let balls = []
 let hinders = []
-let numBalls = 10
+let numBalls = 1
 let numHin= 3
 
 function preload() {

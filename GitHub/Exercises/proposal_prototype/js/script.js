@@ -7,22 +7,22 @@ function preload() {
     
 }
 
-let paddle
+let board
 
 function setup() {
 createCanvas(750,750)
 
 // background(0)
-bg1()
 
 
 
 
-paddle = new Paddle(300, 20)
+
+board = new Board(300, 20)
 }
 
 
-
+push()
 function bg1(){
     for (let i= 0; i <= height; i += 40) {//Does 144 symmetrical circles
         for (let j = 0; j <= width; j += 40) {
@@ -36,51 +36,51 @@ function bg1(){
         }
       }
 }
+pop()
 
-
-let a;
-let x;
-a=0
-x=0
+// let a;
+// let x;
+// a=0
+// x=0
 
 
 
 function draw() {
-
+    bg1()
   
 // bg()
 // drawEllipse ()
 
+board.display()
+board.move()
 
-paddle.move()
-paddle.display()
 
 }
 
-function drawEllipse() {
-    if (keyIsPressed === true){
-fill(255,0,0)
-        ellipse(random(width), random(height), random(0,10), random(0,20));
-    }
-}
+// function drawEllipse() {
+//     if (keyIsPressed === true){
+// fill(255,0,0)
+//         ellipse(random(width), random(height), random(0,10), random(0,20));
+//     }
+// }
 
 
 
 
 
 
-function bg(){
-    for(let i=0; i<30;i++){
-        stroke(255,150,150,50)
-        line(width/2+a, 0, width/2 + a, height);
+// function bg(){
+//     for(let i=0; i<30;i++){
+//         stroke(255,150,150,50)
+//         line(width/2+a, 0, width/2 + a, height);
         
-        a+=1
-    }
+//         a+=1
+//     }
     
-    for(let i=0; i<30;i++){
-        stroke(255,150,150,50)
-        line(width/2+x, 0, width/2 + x, height);
+//     for(let i=0; i<30;i++){
+//         stroke(255,150,150,50)
+//         line(width/2+x, 0, width/2 + x, height);
         
-        x-=1
-    }
-}
+//         x-=1
+//     }
+// }
