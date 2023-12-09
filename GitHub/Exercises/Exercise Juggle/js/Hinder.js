@@ -4,7 +4,7 @@ class Hinder {
         this.width = w
         this.height = h
         this.x = random(0, windowWidth)
-        this.y =  random(1000, windowHeight)
+        this.y =  random(600, windowHeight)
       
 
     }
@@ -33,15 +33,28 @@ class Hinder {
 
 
 
+    // bouncetwo() {
+    //     if (this.x > hinder.x - hinder.width / 2 &&
+    //         this.x < hinder.x + hinder.width / 2 &&
+    //         this.y + this.size / 2 > hinder.y - hinder.height / 2 &&
+    //         this.y - this.size < hinder.y + hinder.height / 2) {
+
+    //         // let dx = this.x - hinder.x
+    //         // this.vx = this.vx + map(dx, -hinder.width/2, hinder.width/2, -10,10)
+
+    //         this.vy = -this.vy
+    //         this.ay = 0
+    //     }
+    // }
 
 
 
     display() {
-        push()
+        
         fill(255,0,0)
         stroke(255,0,0)
         rectMode(CENTER)
         rect(this.x, this.y, this.width, this.height)
-        pop()
+        
     }
 }

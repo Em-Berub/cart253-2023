@@ -1,6 +1,4 @@
-class Rebound {
-
-
+class Gball {
 
     constructor(x, y) {
         this.x = x
@@ -12,32 +10,33 @@ class Rebound {
         this.maxSpeed = 10
         this.size = 30
         this.active = true
-        this.growRate = 5
+        this.growRate = 0.5
         this.maxSize = 100
     }
+
 
     gravity(force) {
         this.ay = this.ay + force
     }
 
-    grown (ball){
+    // grown(ball){
         
         
-            // Calculate the distance between the bee and the flower
-            let d = dist(this.x, this.y, ball.x, ball.y);
-            // If they overlap...
-            if (d < this.size / 2 + ball.size / 2) {
-              // The bee should grow
-              // Notice how we can call OTHER METHODS of the Bee by using "this"
-              // So this.grow() calls the grow() method for THIS bee
-              this.vy = -this.vy
-              this.ay = 0
-              this.grow();
-              // The flower should react to being pollinated so we call its method
-              // that handles that!
-              ball.touch();
-            }
-          }
+    //         // Calculate the distance between the bee and the flower
+    //         let d = dist(this.x, this.y, ball.x, ball.y);
+    //         // If they overlap...
+    //         if (d < this.size / 2 + ball.size / 2) {
+    //           // The bee should grow
+    //           // Notice how we can call OTHER METHODS of the Bee by using "this"
+    //           // So this.grow() calls the grow() method for THIS bee
+    //           this.vy = -this.vy
+    //           this.ay = 0
+    //           this.grow();
+    //           // The flower should react to being pollinated so we call its method
+    //           // that handles that!
+             
+    //         }
+    //       }
     
           grow() {
             // Grow by increasing the size by a set amount
@@ -81,6 +80,11 @@ class Rebound {
             this.ay = 0
         }
     }
+
+
+
+
+
      
     display() {
         push()

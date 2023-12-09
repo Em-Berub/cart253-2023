@@ -19,10 +19,11 @@ createCanvas(750,750)
 
 
 board = new Board(300, 20)
+ball = new Ball();
 }
 
 
-push()
+
 function bg1(){
     for (let i= 0; i <= height; i += 40) {//Does 144 symmetrical circles
         for (let j = 0; j <= width; j += 40) {
@@ -36,7 +37,7 @@ function bg1(){
         }
       }
 }
-pop()
+
 
 // let a;
 // let x;
@@ -56,6 +57,9 @@ board.move()
 
 
 }
+function mousePressed() {
+    ball.color();
+  }
 
 // function drawEllipse() {
 //     if (keyIsPressed === true){

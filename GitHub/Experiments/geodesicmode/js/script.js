@@ -38,23 +38,38 @@ let z;
 let lineX;
 let lineY;
 
+
 a=500
 p=0
 y=0
 x=0
 z=0
 lineX=0
-lineY=500
+lineY=490
 
-
-
+let i 
+i=0
+let k
+k=0
 function draw(){
-
+  // line(lineX, 10, lineX, 490);
+  // if (lineX<500){
+  // lineX+=10
+  // }
 //generates the bording squares and vertical lines
-line(lineX, 0, lineX, 500);
-lineX+=10
+// for(i=0 ; i<25 ; i++){
+// line(lineX, 0, lineX, 500);
+// lineX+=10
+// }
+// for(k=0 ; k<25 ; k++){
+//   line(lineY, 0, lineY, 500);
+//   lineY-=10
+//   }
 
-line(lineY, 0, lineY, 500);
+
+line(lineX, 10, lineX, 490);
+lineX+=10
+line(lineY, 10, lineY, 490);
 lineY-=10
 
 stroke(220,220,0)
@@ -90,6 +105,10 @@ for (let i = 0; i < 25; i++) {//generates the elongated middle shape
   stroke(222,180,0)
   ellipse(250, 250, y, i);
   stroke(0)
+
+
+
+ 
 }
 
 drawEllipse();

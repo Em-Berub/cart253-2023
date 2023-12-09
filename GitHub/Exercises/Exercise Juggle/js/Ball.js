@@ -10,7 +10,7 @@ class Ball {
         this.maxSpeed = 10
         this.size = 40
         this.active = true
-        this.maxSize = 200
+        this.maxSize = 75
         this.fill= 255
         this.fill2= 150
         this.fill3= 50
@@ -61,16 +61,43 @@ class Ball {
 
     }
 
+
+   
+
     touch() {
+        // // Choose a random amount to grow
+        // let growth = 0.5
+        // // Increase the petal thickness (divide by 10 to make it less rapid)
+        // this.size = this.size + growth 
+        // // Increase the centre of the flower
+        // this.vy = -this.vy
+        // // Constrain the elements
+        // this.size = constrain(this.size, 0, this.maxSize);
+
+
+
+
+    
+
+        let d = dist(this.x, this.y, gball.x, gball.y);
+        // If they overlap...
+        if (d < this.size / 2 + gball.size / 2) {
         // Choose a random amount to grow
         let growth = 0.5
         // Increase the petal thickness (divide by 10 to make it less rapid)
         this.size = this.size + growth 
         // Increase the centre of the flower
-        this.vx = -this.vx
+        this.vy = -this.vy
         // Constrain the elements
         this.size = constrain(this.size, 0, this.maxSize);
+
+          gball.grow()
+        }
       }
+
+
+
+
     display() {
         push()
         fill(this.fill,this.fill2,this.fill3)

@@ -2,34 +2,37 @@
 
 "use strict";
 
-let rebound
-// let hinder
+let gball
 let paddle
-let gravityForce = 0.0010
+let gravityForce = 0.0020
 let balls = []
 let hinders = []
-let numBalls = 1
-let numHin= 3
+let numBalls = 30
+let numHin= 5
 
 function preload() {
 }
 
 let state = 'start'
+
+
 function setup() {
+
     createCanvas(windowWidth, windowHeight)
 
-    rebound = new Rebound(250,250)
+    gball = new Gball(50,15)
     paddle = new Paddle(300, 20)
+
     for (let i = 0; i < numBalls; i++) {
-        let x = random(0, width)
-        let y = random(-500, 0)
-        let ball = new Ball(x, y)
+        let x = random(0,700)
+        let y = random(-200,0)
+        let ball = new Ball(x,y)
         balls.push(ball)
     }
 
     for (let i = 0; i < numHin  ; i++) {
         
-        let hinder = new Hinder(300, 20)
+        let hinder = new Hinder(75, 10)
         hinders.push(hinder)
     }
     
@@ -41,15 +44,15 @@ function setup() {
 function draw() {
 
    
-    background(0)
+    background(250)
     paddle.move()
     paddle.display()
-   
-    rebound.display()
-    rebound.move()
-    rebound.bounce()
-    // rebound.collide()
-    rebound.gravity(gravityForce)
+   gball.display()
+   gball.move()
+    // rebound.display()
+    // rebound.move()
+    gball.bounce()
+    gball.gravity(gravityForce)
 
     for (let i = 0; i < balls.length; i++) {
         let ball = balls[i]
@@ -58,21 +61,87 @@ function draw() {
             ball.gravity(gravityForce)
             ball.move()
             ball.bounce()
+            // ball.bouncetwo()
             ball.display()
-            rebound.grown (ball)
+            // rebound.grown(ball)
+            ball.touch()
+            // ball.bouncetwo(hinder)
         }
+    
+
         for (let j = 0; j < hinders.length; j++) {
             let hinder = hinders[j];
-            hinder.bounce(ball)
-    
+            // hinder.bounce(balls)
+    hinder.bounce(ball)
             hinder.display()
             
           }
+        }
+
 
           
+            // for (let j = 0; j < hinders.length; j++) {
+            //     let hinder = hinders[j];
+            //     hinder.bounce(ball)
+        
+            //     hinder.display()
+                
+            //   }
+
+
+
+
+        //     let aboveBalls = true
+        //     for (let i = 0; i < balls.length; i++) {
+        //         let ball = balls[i];
+            
+        //         if (ball.y < windowHeight) {
+        //             aboveBalls = false;
+        //             break;
+        //         }
+        //   if (aboveBalls) {
+        //         // state = 'end';
+        //         background(255, 0, 0)
+        //         fill(255)
+        //         textSize(60)
+        //         // textAlign(CENTER, CENTER)
+            
+               
+        //         textStyle(BOLD)
+        //         text('END',windowWidth/2, windowHeight/2)
+        //     }
+        
+        //     }
+            
+          
+        
+        
+    //         let afterWindow = true;
+        
+    //     for (let i = 0; i < hinders.length; i++) {
+    //         let hinder = hinders[i];
+        
+    //         if (hinder.y -200< windowHeight) {
+    //             afterWindow = false;
+    //             break;
+    //         }
+    //     }
+        
+    //     if (afterWindow) {
+    //         // state = 'end';
+    //         background(255, 0, 0)
+    //         fill(255)
+    //         textSize(40)
+    //         textAlign(CENTER, TOP)
+        
+    //         text('End of simulation',500,12)
+    //     }
+        
         
        
-    }
+    // }
+
+
 
     let aboveBalls = true
     for (let i = 0; i < balls.length; i++) {
@@ -82,11 +151,13 @@ function draw() {
             aboveBalls = false;
             break;
         }
+ 
+
     }
     
     if (aboveBalls) {
         // state = 'end';
-        background(255, 0, 0);
+        background(255, 0, 0)
         fill(255)
         textSize(60)
         // textAlign(CENTER, CENTER)
@@ -96,12 +167,13 @@ function draw() {
         text('END',windowWidth/2, windowHeight/2)
     }
 
+
     let afterWindow = true;
 
 for (let i = 0; i < hinders.length; i++) {
     let hinder = hinders[i];
 
-    if (hinder.y < windowHeight) {
+    if (hinder.y - 25 < windowHeight) {
         afterWindow = false;
         break;
     }
@@ -109,15 +181,21 @@ for (let i = 0; i < hinders.length; i++) {
 
 if (afterWindow) {
     // state = 'end';
-    background(255, 0, 0);
-    fill(255)
+    background(255, 0, 0)
+    fill(0)
     textSize(40)
-    textAlign(CENTER, CENTER)
+    textAlign(CENTER, TOP)
 
-   
-
-    text('End of simulation',250,250)
+    text('End of simulation',500,120)
 }
+
+
+
+}
+
+
+
+
     // let colorChanged = false;
     // for (let i = 0; i < hinders.length  ; i++) {
     //     let hinder = hinders[i];
@@ -135,7 +213,7 @@ if (afterWindow) {
     //     let hinder = hinders[i]
        
     // }
-}
+
 
 
 
